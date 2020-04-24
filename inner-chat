@@ -80,37 +80,27 @@ Config()
             echo "Config $@"
             case $1 in # Search getopts 
                 "-a" )
-                    echo "$2"
                     PASS="$2"
-                    echo $PASS
                     ADDRESS="$PASS"
                     ;;
                 
                 "-u" )
-                    echo "$2"
                     USERPASS="$2"
-                    echo $USERPASS
                     USER="$USERPASS"
                     ;;
                 
                 "-t" )
-                    echo "-t $2"
                     TITLEPASS=" -t \"$2\""
-                    echo $TITLEPASS
                     TITLE="$TITLEPASS"
                     ;;
                 
                 "-m" )
-                    echo "-m $2"
                     MESSAGEPASS="\"$2\""
-                    echo $MESSAGEPASS
                     MESSAGE="$MESSAGEPASS"
                     ;;
                 
                 "-i" )
-                    echo "-i $2"
                     ICONPASS="\"$2\""
-                    echo $ICONPASS
                     ICON="$ICONPASS"
                     ;;
                 *)
@@ -118,37 +108,27 @@ Config()
             
             case $3 in # Search getopts 
                 "-a" )
-                    echo "-a $4"
                     PASS="$4"
-                    echo $PASS
                     ADDRESS="$PASS"
                     ;;
                 
                 "-u" )
-                    echo "-u $4"
                     USERPASS="$4"
-                    echo $USERPASS
                     USER="$USERPASS"
                     ;;
                 
                 "-t" )
-                    echo "-t $4"
                     TITLEPASS=" -t \"$4\""
-                    echo $TITLEPASS
                     TITLE="$TITLEPASS"
                     ;;
                 
                 "-m" )
-                    echo "-m $4"
                     MESSAGEPASS="\"$4\""
-                    echo $MESSAGEPASS
                     MESSAGE="$MESSAGEPASS"
                     ;;
                 
                 "-i" )
-                    echo "-i $4"
                     ICONPASS="\"$4\""
-                    echo $ICONPASS
                     ICON="$ICONPASS"
                     ;;
                 *)
@@ -156,37 +136,27 @@ Config()
             
             case $5 in # Search getopts 
                 "-a" )
-                    echo "$6"
                     PASS="$6"
-                    echo $PASS
                     ADDRESS="$PASS"
                     ;;
                 
                 "-u" )
-                    echo "-u $6"
                     USERPASS="$6"
-                    echo $USERPASS
                     USER="$USERPASS"
                     ;;
                 
                 "-t" )
-                    echo "-t $6"
                     TITLEPASS=" -t \"$6\""
-                    echo $TITLEPASS
                     TITLE="$TITLEPASS"
                     ;;
                 
                 "-m" )
-                    echo "-m $6"
                     MESSAGEPASS="\"$6\""
-                    echo $MESSAGEPASS
                     MESSAGE="$MESSAGEPASS"
                     ;;
                 
                 "-i" )
-                    echo "-i $6"
                     ICONPASS="\"$6\""
-                    echo $ICONPASS
                     ICON="$ICONPASS"
                     ;;
                 *)
@@ -194,37 +164,27 @@ Config()
 
             case $7 in # Search getopts 
                 "-a" )
-                    echo "$8"
                     PASS="$8"
-                    echo $PASS
                     ADDRESS="$PASS"
                     ;;
                 
                 "-u" )
-                    echo "-u $8"
                     USERPASS="$8"
-                    echo $USERPASS
                     USER="$USERPASS"
                     ;;
                 
                 "-t" )
-                    echo "-t $8"
                     TITLEPASS=" -t \"$8\""
-                    echo $TITLEPASS
                     TITLE="$TITLEPASS"
                     ;;
                 
                 "-m" )
-                    echo "-m $8"
                     MESSAGEPASS="\"$8\""
-                    echo $MESSAGEPASS
                     MESSAGE="$MESSAGEPASS"
                     ;;
                 
                 "-i" )
-                    echo "-i $8"
                     ICONPASS="\"$8\""
-                    echo $ICONPASS
                     ICON="$ICONPASS"
                     ;;
                 *)
@@ -232,37 +192,27 @@ Config()
             
             case $9 in # Search getopts 
                 "-a" )
-                    echo "${10}"
                     PASS="${10}"
-                    echo $PASS
                     ADDRESS="$PASS"
                     ;;
                 
                 "-u" )
-                    echo "-u ${10}"
                     USERPASS="${10}"
-                    echo $USERPASS
                     USER="$USERPASS"
                     ;;
                 
                 "-t" )
-                    echo "-t ${10}"
                     TITLEPASS=" -t \"${10}\""
-                    echo $TITLEPASS
                     TITLE="$TITLEPASS"
                     ;;
                 
                 "-m" )
-                    echo "-m ${10}"
                     MESSAGEPASS="\"${10}\""
-                    echo $MESSAGEPASS
                     MESSAGE="$MESSAGEPASS"
                     ;;
                 
                 "-i" )
-                    echo "-i ${10}"
                     ICONPASS=" -i ${10}"
-                    echo $ICONPASS
                     ICON="$ICONPASS"
                     ;;
                 *)
@@ -286,4 +236,3 @@ if [ $PR == $PR_BIN ]
         Prere $RESPONSE;
 fi
 exit 0;
-    
