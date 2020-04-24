@@ -3,7 +3,7 @@ Super simple Debian desktop notify sender
 
 ###  For use this script between devices please install libnotify-bin
 ```
-ssh USUARIO@DIRECCION 'DISPLAY=:0 notify-send "Mensaje"'
+ssh USER@IP_ADDRESS 'DISPLAY=:0 notify-send "MESSAGE"'
 ```
 
 ### libNotify  Resources notes and usage
