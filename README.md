@@ -1,11 +1,25 @@
 # inner-chat
 Super simple Debian desktop notify sender
 
-###  For use this script between devices please install libnotify-bin
+# Note:
+### Before run the script, please grant privileges:
 ```
-ssh USER@IP_ADDRESS 'DISPLAY=:0 notify-send "MESSAGE"'
+$ chmod u+x inner-chat
 ```
+## Usage:
+### inner-chat [OPTIONS]
+```
+	Options:
+	  -a Direccion del host
+	  -u Usuario
+	  -t Titulo del mensaje (Entrecomillas si es mas de una palabra)
+	  -m Cuerpo del mensaje (Entrecomillas si es mas de una palabra)
+	  -i $HOME/icon/ico.ico
 
+	  I.e.:
+	     inner-chat -u root -a 192.168.0.2 -t \"Titulo del mensaje\" \
+	     -m \"Cuerpo del mensaje\" -i \$HOME/ico.png"
+```
 ### libNotify  Resources notes and usage
 ### SYNOPSIS ->
 ```
@@ -26,22 +40,7 @@ ssh USER@IP_ADDRESS 'DISPLAY=:0 notify-send "MESSAGE"'
        -c, --category=TYPE[,TYPE...]                                         
               Specifies the notification category. 
 ```     
-## Usage:
-### inner-chat [OPTIONS]
+###  For use this script between devices please install libnotify-bin and open-ssh
 ```
-	Options:
-	  -a Direccion del host
-	  -u Usuario
-	  -t Titulo del mensaje (Entrecomillas si es mas de una palabra)
-	  -m Cuerpo del mensaje (Entrecomillas si es mas de una palabra)
-	  -i $HOME/icon/ico.ico
-
-	  I.e.:
-	     inner-chat -u root -a 192.168.0.2 -t \"Titulo del mensaje\" \
-	     -m \"Cuerpo del mensaje\" -i \$HOME/ico.png"
-```
-# Note:
-### Before run the script, please grant privileges:
-```
-$ chmod u+x inner-chat
+ssh USER@IP_ADDRESS 'DISPLAY=:0 notify-send "MESSAGE"'
 ```
