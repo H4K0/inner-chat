@@ -77,7 +77,6 @@ Config()
 {
 	if [ $PARAM -ge 3 ]
         then
-            echo "Config $@"
             case $1 in # Search getopts 
                 "-a" )
                     PASS="$2"
