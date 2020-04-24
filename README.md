@@ -2,14 +2,17 @@
 Super simple Debian desktop notify sender
 
 ###  For use this script between devices please install libnotify-bin
+```
 ssh USUARIO@DIRECCION 'DISPLAY=:0 notify-send "Mensaje"'
+```
 
- libNotify  Resources notes and usage
+### libNotify  Resources notes and usage
  SYNOPSIS:
 ```
   notify-send [OPTIONS] <summary> [body]                     
 ```
-### OPTIONS->                                                                   
+### OPTIONS-> 
+```
        -u, --urgency=LEVEL [LEVEL = low, normal, critical]                   
                                                                              
        -t, --expire-time=TIME                                                
@@ -22,10 +25,10 @@ ssh USUARIO@DIRECCION 'DISPLAY=:0 notify-send "Mensaje"'
                                                                              
        -c, --category=TYPE[,TYPE...]                                         
               Specifies the notification category. 
-              
+```     
 ### Usage:
 ## inner-chat [OPTIONS]
-
+```
 	Options:
 	  -a Direccion del host
 	  -u Usuario
@@ -34,10 +37,12 @@ ssh USUARIO@DIRECCION 'DISPLAY=:0 notify-send "Mensaje"'
 	  -i $HOME/icon/ico.ico
 
 	  I.e.:
-	     inner-chat -u root -a 192.168.0.2 -t \"Titulo del mensaje\" -m \"Cuerpo del mensaje\" -i \$HOME/ico.png"
-       
+	     inner-chat -u root -a 192.168.0.2 -t \"Titulo del mensaje\" \
+	     -m \"Cuerpo del mensaje\" -i \$HOME/ico.png"
+```
+
 # Note:
-Before run the script, please grant privileges:
+### Before run the script, please grant privileges:
 ```
 $ chmod u+x inner-chat
 ```
