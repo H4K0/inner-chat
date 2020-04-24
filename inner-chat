@@ -1,0 +1,289 @@
+#!/bin/bash
+#                                                                             #
+###############################################################################
+# For use this script between devices please install libnotify-bin            #
+#                                                                             #
+# ssh USUARIO@DIRECCION 'DISPLAY=:0 notify-send "Mensaje"'                    #
+#                                                                             #
+###############################################################################
+#                                                                             #
+#                libNotify Resources notes and usage                          #
+#                                                                             #
+###############################################################################
+#                                                                             #
+# SYNOPSIS  ->     notify-send [OPTIONS] <summary> [body]                     #
+# OPTIONS->                                                                   #
+#       -u, --urgency=LEVEL [LEVEL = low, normal, critical]                   #
+#                                                                             #
+#       -t, --expire-time=TIME                                                #
+#              The duration, in milliseconds, for the notification to appear  #
+#                   on screen. (Ubuntu's Notify OSD and GNOME Shell both      #
+#                   ignore this parameter.)                                   #
+#                                                                             #
+#       -i, --icon=ICON[,ICON...]                                             #
+#              Specifies an icon filename or stock icon to display.           #
+#                                                                             #
+#       -c, --category=TYPE[,TYPE...]                                         #
+#              Specifies the notification category.                           #
+#                                                                             #
+###############################################################################
+#
+# Inicialized persistances:
+USER=''
+ADDRESS=''
+MESSAGE=''
+TITLE=''
+ICON=''
+PR_BIN="libnotify-bin"
+PR="$(dpkg -l | grep -o $PR_BIN)"
+let PARAM=$#/2
+#
+# Funks ->
+#
+Help()
+{
+	echo -e "
+	\r  Usage: $(basename $0) [OPTIONS]
+
+	\rOptions:
+	\r  -a Direccion del host
+	\r  -u Usuario
+	\r  -t Titulo del mensaje (Entrecomillas si es mas de una palabra)
+	\r  -m Cuerpo del mensaje (Entrecomillas si es mas de una palabra)
+	\r  -i \$HOME/icon/ico.ico
+
+	\r  I.e.:
+	\r     inner-chat -u root -a 192.168.0.2 -t \"Titulo del mensaje\" -m \"Cuerpo del mensaje\" -i \$HOME/ico.png"
+}
+HelpF ()
+{
+    if [ $# -eq 1 ]
+    then
+    	Help
+    fi
+}
+
+Prere()
+{
+    if [[ $1 == "Sí" || $1 == "sí" || $1 == "Si" || $1 == "si" || $1 == "S" || $1 == "s" || $1 == "Yes" || $1 == "yes" || $1 == "Y" || $1 == "y" ]]
+        then
+            sudo apt-get install libnotify-bin
+        else
+            echo ' .:. Debe instalar los requisitos para continuar .:. ';
+            exit 0;
+    fi
+}
+Config()
+{
+	if [ $PARAM -ge 3 ]
+        then
+            echo "Config $@"
+            case $1 in # Search getopts 
+                "-a" )
+                    echo "$2"
+                    PASS="$2"
+                    echo $PASS
+                    ADDRESS="$PASS"
+                    ;;
+                
+                "-u" )
+                    echo "$2"
+                    USERPASS="$2"
+                    echo $USERPASS
+                    USER="$USERPASS"
+                    ;;
+                
+                "-t" )
+                    echo "-t $2"
+                    TITLEPASS=" -t \"$2\""
+                    echo $TITLEPASS
+                    TITLE="$TITLEPASS"
+                    ;;
+                
+                "-m" )
+                    echo "-m $2"
+                    MESSAGEPASS="\"$2\""
+                    echo $MESSAGEPASS
+                    MESSAGE="$MESSAGEPASS"
+                    ;;
+                
+                "-i" )
+                    echo "-i $2"
+                    ICONPASS="\"$2\""
+                    echo $ICONPASS
+                    ICON="$ICONPASS"
+                    ;;
+                *)
+            esac
+            
+            case $3 in # Search getopts 
+                "-a" )
+                    echo "-a $4"
+                    PASS="$4"
+                    echo $PASS
+                    ADDRESS="$PASS"
+                    ;;
+                
+                "-u" )
+                    echo "-u $4"
+                    USERPASS="$4"
+                    echo $USERPASS
+                    USER="$USERPASS"
+                    ;;
+                
+                "-t" )
+                    echo "-t $4"
+                    TITLEPASS=" -t \"$4\""
+                    echo $TITLEPASS
+                    TITLE="$TITLEPASS"
+                    ;;
+                
+                "-m" )
+                    echo "-m $4"
+                    MESSAGEPASS="\"$4\""
+                    echo $MESSAGEPASS
+                    MESSAGE="$MESSAGEPASS"
+                    ;;
+                
+                "-i" )
+                    echo "-i $4"
+                    ICONPASS="\"$4\""
+                    echo $ICONPASS
+                    ICON="$ICONPASS"
+                    ;;
+                *)
+            esac
+            
+            case $5 in # Search getopts 
+                "-a" )
+                    echo "$6"
+                    PASS="$6"
+                    echo $PASS
+                    ADDRESS="$PASS"
+                    ;;
+                
+                "-u" )
+                    echo "-u $6"
+                    USERPASS="$6"
+                    echo $USERPASS
+                    USER="$USERPASS"
+                    ;;
+                
+                "-t" )
+                    echo "-t $6"
+                    TITLEPASS=" -t \"$6\""
+                    echo $TITLEPASS
+                    TITLE="$TITLEPASS"
+                    ;;
+                
+                "-m" )
+                    echo "-m $6"
+                    MESSAGEPASS="\"$6\""
+                    echo $MESSAGEPASS
+                    MESSAGE="$MESSAGEPASS"
+                    ;;
+                
+                "-i" )
+                    echo "-i $6"
+                    ICONPASS="\"$6\""
+                    echo $ICONPASS
+                    ICON="$ICONPASS"
+                    ;;
+                *)
+            esac
+
+            case $7 in # Search getopts 
+                "-a" )
+                    echo "$8"
+                    PASS="$8"
+                    echo $PASS
+                    ADDRESS="$PASS"
+                    ;;
+                
+                "-u" )
+                    echo "-u $8"
+                    USERPASS="$8"
+                    echo $USERPASS
+                    USER="$USERPASS"
+                    ;;
+                
+                "-t" )
+                    echo "-t $8"
+                    TITLEPASS=" -t \"$8\""
+                    echo $TITLEPASS
+                    TITLE="$TITLEPASS"
+                    ;;
+                
+                "-m" )
+                    echo "-m $8"
+                    MESSAGEPASS="\"$8\""
+                    echo $MESSAGEPASS
+                    MESSAGE="$MESSAGEPASS"
+                    ;;
+                
+                "-i" )
+                    echo "-i $8"
+                    ICONPASS="\"$8\""
+                    echo $ICONPASS
+                    ICON="$ICONPASS"
+                    ;;
+                *)
+            esac
+            
+            case $9 in # Search getopts 
+                "-a" )
+                    echo "${10}"
+                    PASS="${10}"
+                    echo $PASS
+                    ADDRESS="$PASS"
+                    ;;
+                
+                "-u" )
+                    echo "-u ${10}"
+                    USERPASS="${10}"
+                    echo $USERPASS
+                    USER="$USERPASS"
+                    ;;
+                
+                "-t" )
+                    echo "-t ${10}"
+                    TITLEPASS=" -t \"${10}\""
+                    echo $TITLEPASS
+                    TITLE="$TITLEPASS"
+                    ;;
+                
+                "-m" )
+                    echo "-m ${10}"
+                    MESSAGEPASS="\"${10}\""
+                    echo $MESSAGEPASS
+                    MESSAGE="$MESSAGEPASS"
+                    ;;
+                
+                "-i" )
+                    echo "-i ${10}"
+                    ICONPASS=" -i ${10}"
+                    echo $ICONPASS
+                    ICON="$ICONPASS"
+                    ;;
+                *)
+            esac
+	fi
+}
+#
+# Main() ->
+#
+if [ $PR == $PR_BIN ]
+    then
+        HelpF $@;
+        Config $@;
+        DATA="ssh $USER@$ADDRESS 'DISPLAY=:0 notify-send -m $MESSAGE $TITLE$ICON'"
+        echo "Sending data: $DATA"
+        $DATA;
+    else
+        echo 'Debe instalar libnotify-bin';
+        echo '¿Desea instalarlo?: [Sí/No]'
+        read RESPONSE;
+        Prere $RESPONSE;
+fi
+exit 0;
+    
