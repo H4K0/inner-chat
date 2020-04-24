@@ -7,11 +7,11 @@ ssh USER@IP_ADDRESS 'DISPLAY=:0 notify-send "MESSAGE"'
 ```
 
 ### libNotify  Resources notes and usage
- SYNOPSIS:
+### SYNOPSIS ->
 ```
   notify-send [OPTIONS] <summary> [body]                     
 ```
-### OPTIONS-> 
+### OPTIONS -> 
 ```
        -u, --urgency=LEVEL [LEVEL = low, normal, critical]                   
                                                                              
@@ -26,8 +26,8 @@ ssh USER@IP_ADDRESS 'DISPLAY=:0 notify-send "MESSAGE"'
        -c, --category=TYPE[,TYPE...]                                         
               Specifies the notification category. 
 ```     
-### Usage:
-## inner-chat [OPTIONS]
+## Usage:
+### inner-chat [OPTIONS]
 ```
 	Options:
 	  -a Direccion del host
@@ -40,7 +40,6 @@ ssh USER@IP_ADDRESS 'DISPLAY=:0 notify-send "MESSAGE"'
 	     inner-chat -u root -a 192.168.0.2 -t \"Titulo del mensaje\" \
 	     -m \"Cuerpo del mensaje\" -i \$HOME/ico.png"
 ```
-
 # Note:
 ### Before run the script, please grant privileges:
 ```
